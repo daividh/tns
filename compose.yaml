@@ -1,0 +1,35 @@
+name: tns
+
+services:
+  ############################################################
+  # POSTGRES
+  ############################################################
+  postgres:
+    container_name: postgres
+    build: stack/postgres
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    ports:
+      - 5432:5432
+    volumes:
+      # Bind sql script initialization folder
+      - type: bind
+        source: stack/postgres/docker-entrypoint-initdb.d
+        target: /docker-entrypoint-initdb.d
+
+  ############################################################
+  # POSTGRES ADMIN
+  ############################################################
+  # pgadmin:
+  #   image: dpage/pgadmin4:8.8
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=test@example.com
+  #     - PGADMIN_DEFAULT_PASSWORD=guest
+  #   ports:
+  #     - 8080:80
+
+volumes:
+  pgdata:
+
+networks:
+  default:
