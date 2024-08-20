@@ -1,0 +1,1 @@
+ALTER TABLE "tns"."UserAccount" ADD COLUMN "password" text NOT NULL default '';

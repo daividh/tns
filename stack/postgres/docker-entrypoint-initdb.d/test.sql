@@ -2,14 +2,15 @@ CREATE DATABASE tns;
 
 \c tns;
 
-CREATE TABLE person (
+CREATE TABLE UserAccount (
     id      SERIAL  PRIMARY KEY,
-    email   TEXT NOT NULL
+    email   TEXT NOT NULL,
+    "password" TEXT NULL
 );
 
-INSERT INTO person (email) VALUES ('a@a.com');
-INSERT INTO person (email) VALUES ('b@b.com');
-INSERT INTO person (email) VALUES ('c@c.com');
-INSERT INTO person (email) VALUES ('d@d.com');
+INSERT INTO UserAccount (email) VALUES ('a@a.com');
+INSERT INTO UserAccount (email) VALUES ('b@b.com');
+INSERT INTO UserAccount (email) VALUES ('c@c.com');
+INSERT INTO UserAccount (email) VALUES ('d@d.com');
 
-SELECT * FROM person;
+SELECT * FROM UserAccount;
